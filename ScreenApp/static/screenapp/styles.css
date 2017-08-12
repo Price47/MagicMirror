@@ -1,0 +1,21 @@
+body{
+    background: #1a1b1c;!important;
+}
+
+p{
+    color:white;!important;
+}
+
+#txt{
+    font-family: "Impact";
+}
+
+.text{
+    font-family: "Impact";
+    color:white;
+    text-align: center;
+}
+
+.top-layer{
+    z-index:10;
+}
