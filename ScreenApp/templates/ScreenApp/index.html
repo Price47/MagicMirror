@@ -29,9 +29,18 @@
 
 <body onload="startTime();">
 
-    <div class="top-layer" id="time_container" style="width:125px">
-        <div id=txt class="text"></div>
-        <div id="seconds" style="background:white;height:4px;"></div>
+    <div class="top-layer" id="time_container" style="width:60px;">
+
+        <div id=seconds2 style="border-right:5px solid white;top:0;width:55px;height:0px;position:absolute"></div>
+        <div id=seconds1 style="border-top:5px solid white;top:0;width:0;height:110px;position:absolute"></div>
+        <div id=seconds_left style="border-left:5px solid white;top:0;width:55px;height:110px;position:absolute"></div>
+        <div id=seconds4 style="border-left:5px solid #1a1b1c;top:0;width:55px;height:110px;position:absolute"></div>
+        <div id=seconds_bottom style="border-bottom:5px solid white;top:0;width:60px;height:110px;position:absolute"></div>
+        <div id=seconds3 style="border-bottom:5px solid #1a1b1c;top:0;width:60px;height:110px;position:absolute"></div>
+
+
+        <div id=hour class="text time-text" style="margin-top: 17px;"></div>
+        <div id=min class="text time-text"></div>
     </div>
 
 
@@ -50,8 +59,8 @@
 
     <div class="top-layer" id="date_container" style="position: absolute;
     top:0;right:0;margin:5px;">
-        <div class="text"> {{ today }} </div>
-        <div class="text"> {{ month }} {{ day }}</div>
+        <div class="text time-text"> {{ today }} </div>
+        <div class="text time-text"> {{ month }} {{ day }}</div>
     </div>
 
     <svg width="100%" height="600">

@@ -35,15 +35,63 @@ function minuteToText(number){
     }
 }
 
+function hourHandler(hour){
+    if(hour == 0){
+        return 12
+    }
+    if(hour<10){
+        return "0" + hour
+    }
+    else return hour
+}
+
+function minuteHandler(minute){
+    if(minute<10){
+        return "0" + minute
+    }
+    else return minute
+}
+
+function setColor(s){
+    rbValue = 255-(125/60 * s);
+    document.getElementById('seconds1').style.borderTopColor = "rgb("+rbValue+",255,"+rbValue+")";
+    document.getElementById('seconds2').style.borderRightColor = "rgb("+rbValue+",255,"+rbValue+")";
+    document.getElementById('seconds_bottom').style.borderBottomColor = "rgb("+rbValue+",255,"+rbValue+")";
+    document.getElementById('seconds_left').style.borderLeftColor = "rgb("+rbValue+",255,"+rbValue+")";
+}
+
 function startTime() {
     var today = new Date();
     var h = today.getHours();
     var m = today.getMinutes();
     var s = today.getSeconds();
-    document.getElementById('txt').innerHTML =
-        hourToText(h) + " " + minuteToText(m);
-    secondProgess = (100 / 60) * s;
-    document.getElementById('seconds').style.width = secondProgess.toString() + '%';
+
+    document.getElementById('hour').innerHTML =
+        hourHandler(h);
+    document.getElementById('min').innerHTML =
+        minuteHandler(m);
+
+    setColor(s);
+    if (s==0){
+        // Reset Counter to empty state
+        document.getElementById('seconds1').style.width = '0px';
+        document.getElementById('seconds2').style.height = '0px';
+        document.getElementById('seconds3').style.width = '60px';
+        document.getElementById('seconds4').style.height = '110px';
+    }
+    if(s>0 && s<=10) {
+        document.getElementById('seconds1').style.width = (55/10 * s).toString() + 'px';
+    }
+    else if (s>0 && s<=30){
+        document.getElementById('seconds2').style.height = ((110/20) * (s-10)).toString() + 'px';
+    }
+    else if (s>0 && s<=40){
+        document.getElementById('seconds3').style.width = (55- ((55/10) * (s-30))).toString() + 'px';
+    }
+    else if(s>0 && s<60){
+        document.getElementById('seconds4').style.height = (110- (110/20)* (s-40)).toString() + 'px';
+
+    }
     var t = setTimeout(startTime, 500);
 }
 

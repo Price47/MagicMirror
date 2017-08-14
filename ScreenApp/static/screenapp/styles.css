@@ -16,6 +16,10 @@ p{
     text-align: center;
 }
 
+.time-text{
+    font-size: 2em;
+}
+
 .top-layer{
     z-index:10;
 }

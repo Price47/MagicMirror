@@ -92,7 +92,7 @@ function generate(){
 
 
 $(document).ready(function(){
-    rainFall();
-    snowFall();
+    // rainFall();
+    snowfall();
     // d3.selectAll('circle').remove();
 });
